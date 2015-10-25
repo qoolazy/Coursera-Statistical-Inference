@@ -5,9 +5,9 @@ date: "October 24th, 2015"
 output: html_document
 ---
 
-# Overview
+## Overview
 
-In this project we will investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. As instructed, both the mean of exponential distribution and the standard deviation are 1/lambda, and we will set lambda = 0.2 for all of the simulations. We will investigate the distribution of averages of 40 exponentials. Note that we will need to do a thousand simulations.
+In this project we will investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. 
 
 With the simulation, we will attempt to answer the following questions:
 
@@ -17,10 +17,11 @@ With the simulation, we will attempt to answer the following questions:
 
 3. Show that the distribution is approximately normal.
 
-# Simulations
+To see the R and R markdown files, visit my [github](https://github.com/qoolazy/Coursera-Statistical-Inference).
 
-## Sample Mean vs Theoretical Mean
-We will run a series of 1000 simulations to create a data set for comparison to theory. Each simulation will contain 40 observations and the expoential distribution function will be set to “rexp(40, 0.2)”.
+## Simulations
+### Sample Mean vs Theoretical Mean
+As instructed, we will run a series of 1000 simulations to create a data set for comparison to theory. Each simulation will contain 40 observations and the expoential distribution function will be set to “rexp(40, 0.2)”.
 
 Known values: lambda = 0.2, n = 40, simulations = 1000
 ```{r}
@@ -48,13 +49,13 @@ The following code performs the simulations to collect necessary data, then plot
             }
 ```
 
-#### Mean of n = 1000
+##### Mean of n = 1000
 ```{r, echo=FALSE}
         sample_mean <- mean(sim$Mean)
         sample_mean
 ```
 
-#### Theoretical exponential mean of exponential distribution
+##### Theoretical exponential mean of exponential distribution
 ```{r, echo=FALSE}        
         theor_mean <- 1/lambda
         theor_mean
@@ -79,7 +80,7 @@ Histogram plot of the exponential distribution n = 1000
 
 ```
 
-## Sample Variance vs Theoretical Population Variance
+### Sample Variance vs Theoretical Population Variance
 We now turn our attention to the variance. We will compare the variance present in the sample means of the 1000 simulations to the theoretical varience of the population.
 
 The variance of the sample means estimates the variance of the population by using the varience of the 1000 entries in the means vector times the sample size, 40.
@@ -98,7 +99,6 @@ The theoretical variance of the population.
 
 ```
 
-
 ```{r, echo=FALSE,fig.height=3}
 
           hist(sim$Mean, 
@@ -116,7 +116,7 @@ The theoretical variance of the population.
 
 ```
 
-## Show that the distribution is approximately normal.
+### Show that the distribution is approximately normal.
 Due to the central limit theorem, the averages of samples follow normal distribution. The figure above also shows the density computed using the histogram and the normal density plotted with theoretical mean and variance values. Also, the q-q plot below suggests the normality. The theoretical quantiles again match closely with the actual quantiles. These four methods of comparison prove that the distribution is approximately normal.
 
 ```{r,echo=FALSE,fig.height=3}
@@ -128,7 +128,7 @@ Due to the central limit theorem, the averages of samples follow normal distribu
 
 ```
 
-# Appendix
+## Appendix
 
 ```{r,fig.show='hide'}
 
@@ -186,4 +186,3 @@ Due to the central limit theorem, the averages of samples follow normal distribu
                             col = "3")
 
 ```
-
