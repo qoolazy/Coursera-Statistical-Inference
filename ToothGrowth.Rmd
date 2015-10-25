@@ -5,12 +5,12 @@ date: "October 25, 2015"
 output: html_document
 ---
 
-# Overview
+## Overview
 Conduct basic statistical inference for ToothGrowth dataset.
 
 To see the R and R markdown files, visit my [github](https://github.com/qoolazy/Coursera-Statistical-Inference).
 
-# Install and select the following library
+## Install and select the following library
 
 ```{r}
         library(dplyr)
@@ -18,50 +18,50 @@ To see the R and R markdown files, visit my [github](https://github.com/qoolazy/
 
 ```
 
-# 1. Load the ToothGrowth data and perform some basic exploratory data analyses 
+## 1. Load the ToothGrowth data and perform some basic exploratory data analyses 
 
-## Load dataset ToothGrowth
+#### Load dataset ToothGrowth
 ```{r}
             library(datasets)
             data(ToothGrowth)
 ```
 
-## Some basic exploratory data analyses 
+#### Some basic exploratory data analyses 
 ```{r}
             str(ToothGrowth)
             head(ToothGrowth)
             tail(ToothGrowth)
 ```
 
-## Number of Rows and Columns.
+#### Number of Rows and Columns.
 ```{r}
 
             dim(ToothGrowth)
  
 ```
 
-## Sample Size n
+#### Sample Size n
 ```{r}
 
            length(ToothGrowth$len)
 
 ```
 
-## Mean group by dose and by OJ & VC
+#### Mean group by dose and by OJ & VC
 ```{r}
 
           aggregate(ToothGrowth$len,list(ToothGrowth$supp,ToothGrowth$dose),mean)
 
 ```
 
-## Standard Deviation group by dose and by OJ & VC
+#### Standard Deviation group by dose and by OJ & VC
 ```{r}
 
             aggregate(ToothGrowth$len,list(ToothGrowth$supp,ToothGrowth$dose),sd)
 
 ```
 
-## Boxplot graph of the tooth length vs the does
+#### Boxplot graph of the tooth length vs the does
 ```{r, echo=TRUE}
             ggplot(ToothGrowth, aes(x = factor(dose), y = len, fill = factor(dose)))+
                   geom_boxplot()+
@@ -72,7 +72,7 @@ To see the R and R markdown files, visit my [github](https://github.com/qoolazy/
 ```
 
 
-# 2. Provide a basic summary of the data.
+## 2. Provide a basic summary of the data.
 
 ```{r}
 
@@ -88,7 +88,7 @@ It contains 60 observatins on 3 variables:
 
 The response is the length of odontoblasts (teeth) in each of 10 guinea pigs at each of three dose levels of Vitamin C (0.5, 1, and 2 mg) with each of two delivery methods (orange juice or ascorbic acid).
 
-## Table view of data. 
+#### Table view of data. 
 ```{r}
 
             table(ToothGrowth$supp,ToothGrowth$dose)
@@ -108,11 +108,11 @@ ggplot(data = ToothGrowth, aes(x = as.factor(dose), y = len, fill = supp)) +
 
 From the figure we can conclude that _there is a correlation between tooth growth size and dose levels of Vitamin C_, for both delivery methods. 
 
-# 3. Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose. 
+## 3. Use confidence intervals and/or hypothesis tests to compare tooth growth by supp and dose. 
 
 From the box plot, OJ looks to be doing better with dose 0.5 and 1 effect on teeth growth than VC. To test this hypothesis by hold a the mean of OJ and VC does not cross zero.
 
-## Dose 0.5
+#### Dose 0.5
 We are 95% confident that the limits of 1.719057 and 8.780943 actually do contain the difference between the two population means.Because those limts do not contain zero, this confodence interval suggests that it is very possible that the two population means are not equal.
 
 ```{r}
@@ -123,7 +123,7 @@ We are 95% confident that the limits of 1.719057 and 8.780943 actually do contai
 
 ```
 
-## Dose 1
+#### Dose 1
 We are 95% confident that the limits of 2.802148 and 9.057852 actually do contain the difference between the two population means. Because those limts do not contain zero, this confodence interval suggests that it is very possible that the two population means are not equal.
 
 ```{r}
@@ -134,7 +134,7 @@ We are 95% confident that the limits of 2.802148 and 9.057852 actually do contai
 
 ```
 
-## Dose 2
+#### Dose 2
 We are 95% confident that the limits of -3.79807 and 3.63807 actually do contain the difference between the two population means. However, because those limts do contain zero, this confodence interval suggests that it is very possible that the two population means are equal.
 
 ```{r}
@@ -145,5 +145,6 @@ We are 95% confident that the limits of -3.79807 and 3.63807 actually do contain
 
 ```
 
-# 4. State your conclusions and the assumptions needed for your conclusions. 
+## 4. State your conclusions and the assumptions needed for your conclusions. 
+
 We are 95% confident that dose 0.5 and dose 1 of OJ result in longer tooth length than dose 0.5 and dose 1 of VC. However, at the highest dose of 2, there is no statistically significant difference between the effects of OJ and VC. 
