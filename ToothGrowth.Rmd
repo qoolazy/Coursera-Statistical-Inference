@@ -6,7 +6,9 @@ output: html_document
 ---
 
 # Overview
-Conduct basic statistical inference for ToothGrowth dataset
+Conduct basic statistical inference for ToothGrowth dataset.
+
+To see the R and R markdown files, visit my [github](https://github.com/qoolazy/Coursera-Statistical-Inference).
 
 # Install and select the following library
 
